@@ -111,4 +111,4 @@ Firefox needs the be installed and relatively up-to-date.
 ![run example](https://raw.githubusercontent.com/benjamin-elusers/ticketsFinder/main/img/run_example.png)  
 
 ### ticketsFinder V2 from [@benjamin-elusers](https://github.com/benjamin-elusers/ticketsFinder) on Linux
-![run example](https://raw.githubusercontent.com/benjamin-elusers/ticketsFinder/main/img/ticketsFinderv2-example.png)  
+![run example](https://raw.githubusercontent.com/benjamin-elusers/ticketsFinder/main/img/example_ticketsFinder_V2.png)  
