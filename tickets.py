@@ -94,13 +94,15 @@ def checkpoint_time(t0,tlast):
 
     dt_check=elapsed(tlast,tnow)
     if(dt_check > 600 or tlast==-1):
+        print("")
         spent=f"{elapsed_time} sec."
         if( elapsed_time >= 300 and elapsed_time < 3600):
             spent = tominutes(elapsed_time)
         elif( elapsed_time >= 3600 ):
             spent = tohours(elapsed_time)
-        log.check(f"\n___running for {spent} ___\n")
+        log.check(f"___running for {spent} ___")
         tlast=tnow
+        print("")
     return(tlast)
 
 def usage():
