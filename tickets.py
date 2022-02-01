@@ -214,7 +214,7 @@ def find_available():
             continue
         elif 'יש' in str(search_result):
             dates_open.append(day_month)
-            log.critical('===>>> FOUND TICKETS!!! <<<===\n'+date_in_format)
+            log.critical('===>>> FOUND TICKETS!!! <<<===\n')
             dates_available.append(date_in_format)
         else:
             log.warning(date_in_format, 'failed')
@@ -299,7 +299,7 @@ def main():
         # if list not empty, means we found some tickets
         if dates_available:
             n_success+=1
-            log.critical('dates_available\n'+"\n".join(map(str,dates_available))+"\n")
+            log.critical("dates_available ["+" ".join(map(str,dates_available))+"]\n")
             send_mail(recipients, dates_available, dates_open)
             # if there is no time left, we can save the wait
             if time.time() + wait_time_after_finding > end_time:
