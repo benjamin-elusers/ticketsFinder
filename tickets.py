@@ -96,7 +96,7 @@ def checkpoint_time(t0,tlast):
     dt_check=elapsed(tlast,tnow)
     if(dt_check > 600 or tlast==-1):
         print("")
-        spent=f"{elapsed_time} sec."
+        spent=f"{elapsed_time}s"
         if( elapsed_time >= 300 and elapsed_time < 3600):
             spent = tominutes(elapsed_time)
         elif( elapsed_time >= 3600 ):
