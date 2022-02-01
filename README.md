@@ -78,7 +78,7 @@ Firefox needs the be installed and relatively up-to-date.
   * Click on "Select app" dropdown menu
   * Generate a password for *ticketsFinder* and save it somewhere
        
- In ```Line 255``` and ```Line 257``` fill a valid gmail address from where the alerts are sent.\
+ In ```Line 258``` and ```Line 260``` fill a valid gmail address from where the alerts are sent.\
  Change those lines:
  ```python
     # change this to an email you want the alerts of the bot to be sent from
