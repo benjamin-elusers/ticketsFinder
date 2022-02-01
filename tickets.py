@@ -296,7 +296,7 @@ def main():
         # if list not empty, means we found some tickets
         if dates_available:
             n_success+=1
-            log.success("dates_available ["+" ".join(map(str,dates_available))+"]\n")
+            log.success("dates_available ["+" ".join(map(str,dates_available))+"]")
             send_mail(recipients, dates_available, dates_open)
             # if there is no time left, we can save the wait
             if time.time() + wait_time_after_finding > end_time:
