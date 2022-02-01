@@ -1,11 +1,12 @@
-Credits to @Tom-stack3 for the initial script
+Credits to @github/Tom-stack3 for the initial script
+This prokect was simply my personal touch to give a cosmetic improvement to the text output from the program.
 
 # Tickets Finder
 *ticketsFinder* is a Python script that looks for available tickets for Mount Hermon
 and sends an alert in Real-Time to all the emails interested.\
 It looks for available tickets in all the dates available for sale.
 
-[EDIT 01/02/22 by @benjamin-elusers]
+[EDIT 01/02/22 by @github/benjamin-elusers]
 ## How it works: 
 STEP 0
 Upon execution, the script takes as arguments:
@@ -99,7 +100,7 @@ Firefox needs the be installed and relatively up-to-date.
  
  ---
  
- Again all the credits to @Tom-stack3 for the original idea
+ Again all the credits to @github/Tom-stack3 for the original idea
  I only tried to have a slightly improved text output.
  
  That's it!
