@@ -73,11 +73,11 @@ Firefox needs the be installed and relatively up-to-date.
   * Go to your Google Account. 
   * Click on your profile.
   * Go to *Manage your Google account* -> *Security* -> *Signing in to Google: App Passwords*
-  * You might be ask your personal google password. Authenticate yourself.
+  * You might be asked your personal google password. Authenticate yourself.
   * Click on "Select app" dropdown menu
   * Generate a password for *ticketsFinder* and save it somewhere
        
- In ```Line 105``` and ```Line 107``` fill a valid gmail address from where the alerts are sent.\
+ In ```Line 255``` and ```Line 257``` fill a valid gmail address from where the alerts are sent.\
  Change those lines:
  ```python
     # change this to an email you want the alerts of the bot to be sent from
@@ -85,7 +85,7 @@ Firefox needs the be installed and relatively up-to-date.
     # change this to the password for the 2FA password generated
     email_pass = 'google_2FA_password_example'
  ```
-   Without a valid email, the script will fail to run!
+ **Without a valid email and an authorize app password from Google, the script will fail to run!**
  
  ## Running the script: ##
  After the setup, just run the python script.\
@@ -94,12 +94,15 @@ Firefox needs the be installed and relatively up-to-date.
  
  If you want to input the parameters manually just run the script:
  ```python tickets.py```
- Enter the time in minutes you want the script to keep checking for tickets.\
- Then enter the email addresses you want to be alerted seperated by a comma.\
+ Enter the time in minutes you want the script to keep checking for tickets.
+ Then enter the email addresses you want to be alerted seperated by a comma.
  
- Again Credits to @Tom-stack3 for the original idea
+ ---
  
-That's it!
+ Again all the credits to @Tom-stack3 for the original idea
+ I only tried to have a slightly improved text output.
+ 
+ That's it!
  Have fun in skiing in the Hermon :)
 
 ## Run example:
