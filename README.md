@@ -107,8 +107,8 @@ Firefox needs the be installed and relatively up-to-date.
  Have fun in skiing in the Hermon :)
 
 ## Run example:
-### ticketsFinderV1 from [@Tom-stack3](https://github.com/Tom-stack3/ticketsFinder) on Windows
+### ticketsFinder V1 from [@Tom-stack3](https://github.com/Tom-stack3/ticketsFinder) on Windows
 ![run example](https://raw.githubusercontent.com/benjamin-elusers/ticketsFinder/main/img/run_example.png)  
 
-### ticketsFinder.py V2 from [@benjamin-elusers](https://github.com/benjamin-elusers/ticketsFinder) on Linux
+### ticketsFinder V2 from [@benjamin-elusers](https://github.com/benjamin-elusers/ticketsFinder) on Linux
 ![run example](https://raw.githubusercontent.com/benjamin-elusers/ticketsFinder/main/img/ticketsFinderv2-example.png)  
