@@ -68,6 +68,7 @@ def addLoggingLevel(levelName, levelNum, methodName=None):
     setattr(log, methodName, logToRoot)
 
 addLoggingLevel('CHECK', log.WARNING + 5)
+addLoggingLevel('SUCCESS', log.CRITICAL + 5)
 
 
 ### GENERAL FUNCTIONS
@@ -216,11 +217,11 @@ def find_available():
             continue
         elif 'יש' in str(search_result):
             dates_open.append(day_month)
-            log.critical('===>>> FOUND TICKETS!!! <<<===\n')
+            log.success('===>>> FOUND TICKETS!!! <<<===')
             dates_available.append(date_in_format)
         else:
-            log.warning(date_in_format, 'failed')
-            log.warning("Search result:\n",search_result)
+            log.warning(date_in_format+' failed')
+            log.warning("Search result:\n"+search_result)
     notickets="|".join(map(str,dates_open))
     log.info(f" * Open dates without available tickets: {notickets}\n")
     return dates_available,dates_open
@@ -301,7 +302,7 @@ def main():
         # if list not empty, means we found some tickets
         if dates_available:
             n_success+=1
-            log.critical("dates_available ["+" ".join(map(str,dates_available))+"]\n")
+            log.success("dates_available ["+" ".join(map(str,dates_available))+"]\n")
             send_mail(recipients, dates_available, dates_open)
             # if there is no time left, we can save the wait
             if time.time() + wait_time_after_finding > end_time:
