@@ -1,4 +1,4 @@
-Credits to @github/Tom-stack3 for the initial script
+Credits to [@Tom-stack3](https://github.com/Tom-stack3) for the initial script [Tom-stack3/ticketsFinder](https://github.com/Tom-stack3 /ticketsFinder)
 This prokect was simply my personal touch to give a cosmetic improvement to the text output from the program.
 
 # Tickets Finder
@@ -100,7 +100,7 @@ Firefox needs the be installed and relatively up-to-date.
  
  ---
  
- Again all the credits to @github/Tom-stack3 for the original idea
+ Again all the credits to [@Tom-stack3](https://github.com/Tom-stack3) for the original idea
  I only tried to have a slightly improved text output.
  
  That's it!
