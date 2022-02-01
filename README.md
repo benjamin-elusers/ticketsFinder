@@ -86,7 +86,7 @@ Firefox needs the be installed and relatively up-to-date.
     # change this to the password for the 2FA password generated
     email_pass = 'google_2FA_password_example'
  ```
- **Without a valid email and an authorize app password from Google, the script will fail to run!**
+ **Without a valid email and an authorized App password from Google, the script will fail to run!**
  
  ## Running the script: ##
  After the setup, just run the python script.\
