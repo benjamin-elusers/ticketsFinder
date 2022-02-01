@@ -1,4 +1,4 @@
-Credits to [@Tom-stack3](https://github.com/Tom-stack3) for the initial script [Tom-stack3/ticketsFinder](https://github.com/Tom-stack3 /ticketsFinder)
+Credits to [@Tom-stack3](https://github.com/Tom-stack3) for the initial script [Tom-stack3/ticketsFinder](https://github.com/Tom-stack3/ticketsFinder)
 This prokect was simply my personal touch to give a cosmetic improvement to the text output from the program.
 
 # Tickets Finder
