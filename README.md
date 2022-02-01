@@ -1,35 +1,60 @@
+Credits to @Tom-stack3 for the initial script
+
 # Tickets Finder
 *ticketsFinder* is a Python script that looks for available tickets for Mount Hermon
 and sends an alert in Real-Time to all the emails interested.\
 It looks for available tickets in all the dates available for sale.
 
-## How it works:
-Upon execution, the script asks for how many minutes the program should be running.
-Then the program asks for the email addresses to send alerts to.
-After giving the needed parameters, the script starts searching for tickets.
+[EDIT 01/02/22 by @benjamin-elusers]
+## How it works: 
+STEP 0
+Upon execution, the script takes as arguments:
+ - (option m) how many minutes the program should be running
+ - (option e) the email addresses to send alerts to
+ - (option t) how much time the program will wait between two unsuccessful searches
 
-Every 30 seconds, using selenium, we get the HTML of the tickets page.
-Then we check all the dates available for sale in the HTML to see if there are dates with available tickets.
-We save the free dates in a list and then send email alerts to all the emails.
-If an email was sent (if we found some tickets), we wait 10 minutes before checking again for tickets.
+If no arguments is provided, the script will ask user input for each.
+
+STEP 1
+After giving the needed parameters, the script starts searching for tickets.
+First, it loads the ticket reservation page in Firefox using selenium.webdriver (*requires geckodriver installed*).
+Second, it waits for loading the calendar with the current date.
+
+STEP 2
+With beautifulSoup, it parses the HTML content to find the dates available for sale.
+Then we check whether the date is open and if there is available tickets (contains the string "**יש**").
+
+STEP 3.1
+Every 20 seconds, we reload the HTML tickets reservation page to check again for dates with tickets for sale.
+
+STEP 3.2
+If there are available tickets, the dates are stored.
+An email will be sent giving which dates were open for sale and which had available tickets.
+Then, it waits 10 minutes before checking again for available tickets.
 
 ## Setup before run:
 
-### Instalations: ###
+### Installations: ###
 **Libraries used**:  
-1. selenium - ```python -m pip install selenium```
-2. Beautiful Soup - ```python -m pip install beautifulsoup4```
+1. time
+2. smtplib
+3. getopt
+4. logging
+5. selenium - ```python -m pip install selenium```
+6. Beautiful Soup - ```python -m pip install beautifulsoup4```
 
- **Selenium setup:**
-* The script works with selenium Firefox, so inorder to run the script,
-Firefox needs the be installed.
-* To work with selenium.webdriver, [geckodriver](https://github.com/mozilla/geckodriver/releases/tag/v0.29.0) needs to be installed.\
-After installing and extracting the geckodriver.exe, we need to put it in one of System PATHs.
-To find your System PATHs:
+**Selenium setup:**
+Firefox needs the be installed and relatively up-to-date.
+* Install or update Firefox with a recent version (less than 2 years old)
+* Install selenium.webdriver [geckodriver](https://github.com/mozilla/geckodriver/releases/tag/v0.29.0) \
+  After installing/extracting the geckodriver executable/binaries, add its path to the the system paths \
+  *e.g.* On linux you can execute in the terminal: `export=$PATH:"/path/to/geckodriver"` \
+  This is only valid for the instance of the terminal it was run.\
+  Add it to the custom configuration file for your session (~/.bashrc) for having it loaded by default.
 
+  On Windows, environment variables are accessed from “Advanced system settings” on the left of the “System” control panel.
   *from: https://www.mathworks.com/matlabcentral/answers/94933-how-do-i-edit-my-system-path-in-windows*
-
-  In Windows, environment variables can be accessed from “Advanced system settings” on the left side of the “System” control panel.
+  
   How you access and edit the environment variables depends on the version of Windows you are using.\
   **Windows 10 (Also Windows 8.1):**
     1. Right-click on the Start Button
@@ -42,28 +67,41 @@ To find your System PATHs:
   Now choose one of the PATHs shown, (the python one is prefered) and just copy geckodriver.exe there.
   
  ### Code setup: ###
-   The program sends alerts to the emails specified in the begining of the run.\
-   To send those alerts (in email) we use smtp.\
-   In ```Line 69``` and ```Line 71``` we specify the gmail address the alerts are sent from.\
-   Change those lines:
-   ```python
-   # change this to an email you want the alerts of the bot to be sent from
-   email_address = 'example@gmail.com'
-   # change this to the password for the email you chose
-   email_pass = 'password_example'
-   ```
-   So before running the script, you need to fill in a working gmail and a password you want the program to send the alerts from.
+ The program sends alerts through smtp using gmail server.\
+ You might need 2 Factor Authentification (2FA) password for the program to be able to send emails. \
+ Setting up 2FA password for the program:
+  * Go to your Google Account. 
+  * Click on your profile.
+  * Go to *Manage your Google account* -> *Security* -> *Signing in to Google: App Passwords*
+  * You might be ask your personal google password. Authenticate yourself.
+  * Click on "Select app" dropdown menu
+  * Generate a password for *ticketsFinder* and save it somewhere
+       
+ In ```Line 105``` and ```Line 107``` fill a valid gmail address from where the alerts are sent.\
+ Change those lines:
+ ```python
+    # change this to an email you want the alerts of the bot to be sent from
+    email_address = 'example@gmail.com'
+    # change this to the password for the 2FA password generated
+    email_pass = 'google_2FA_password_example'
+ ```
+   Without a valid email, the script will fail to run!
  
  ## Running the script: ##
  After the setup, just run the python script.\
- Enter the time in minutes you want the scriot to keep checking for tickets.\
- Then enter the email addresses you want to be alerted seperated by a comma.\
- like this:\
- ``` mail.1@mail.com, example@example.com, cr7@real.madrid```
+ In the terminal:
+ ```python tickets.py -m 1500 -e person1@email.com,person2@email.com,person3@email.com```
  
- That's it!
+ If you want to input the parameters manually just run the script:
+ ```python tickets.py```
+ Enter the time in minutes you want the script to keep checking for tickets.\
+ Then enter the email addresses you want to be alerted seperated by a comma.\
+ 
+ Again Credits to @Tom-stack3 for the original idea
+ 
+That's it!
  Have fun in skiing in the Hermon :)
 
 ## Run example:
 
-![run example](https://raw.githubusercontent.com/Tom-stack3/ticketsFinder/main/img/run_example.png)  
+![run example]()  
