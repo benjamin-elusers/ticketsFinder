@@ -70,42 +70,6 @@ def addLoggingLevel(levelName, levelNum, methodName=None):
 addLoggingLevel('CHECK', log.WARNING + 5)
 addLoggingLevel('SUCCESS', log.CRITICAL + 5)
 
-
-### GENERAL FUNCTIONS
-def what_time(noday=True):
-    if(noday == True):
-        return time.strftime('%H:%M:%S (%Z)')
-    return time.strftime('%H:%M:%S (%Z) on %d.%m.%Y (%A)')
-
-def elapsed(t0,t1):
-    return int((t1 - t0))
-
-def tominutes(t):
-    mn=int((t/60))
-    return f"{mn} min."
-
-def tohours(t):
-    hr=int((t/60/60))
-    mn=int(((t/60)%60))
-    return f"{hr}h.{mn}min."
-
-def checkpoint_time(t0,tlast):
-    tnow=time.time()
-    elapsed_time=elapsed(t0,tnow)
-
-    dt_check=elapsed(tlast,tnow)
-    if(dt_check > 600 or tlast==-1):
-        print("")
-        spent=f"{elapsed_time}s"
-        if( elapsed_time >= 300 and elapsed_time < 3600):
-            spent = tominutes(elapsed_time)
-        elif( elapsed_time >= 3600 ):
-            spent = tohours(elapsed_time)
-        log.check(f"___running for {spent}___")
-        tlast=tnow
-        print("")
-    return(tlast)
-
 def usage():
     print('<program.py> -m integer -e example@gmail.com -w 20 -v')
     print('-m minutes to run the program')
@@ -273,7 +237,37 @@ def send_mail(recipients, dates_available, dates_open):
     server.send_message(msg)
     server.quit()
 
+### GENERAL FUNCTIONS
+def what_time(noday=True):
+    if(noday == True):
+        return time.strftime('%H:%M:%S (%Z)')
+    return time.strftime('%H:%M:%S (%Z) on %d.%m.%Y (%A)')
 
+def elapsed(t0,t1):
+    return int((t1 - t0))
+
+def tominutes(t):
+    mn=int((t/60))
+    return f"{mn} min."
+
+def tohours(t):
+    hr=int((t/60/60))
+    mn=int(((t/60)%60))
+    return f"{hr}h.{mn}min."
+
+def checkpoint_time(t0,tlast):
+    tnow=time.time()
+    elapsed_time=elapsed(t0,tnow)
+    dt_check=elapsed(tlast,tnow)
+    if(dt_check > 600 or tlast==-1):
+        spent=f"{elapsed_time}s"
+        if( elapsed_time >= 300 and elapsed_time < 3600):
+            spent = tominutes(elapsed_time)
+        elif( elapsed_time >= 3600 ):
+            spent = tohours(elapsed_time)
+        log.check(f"___running for {spent}___")
+        tlast=tnow
+    return(tlast)
 
 def main():
     
