@@ -181,7 +181,7 @@ def find_available():
             continue
         elif 'יש' in str(search_result):
             dates_open.append(day_month)
-            log.success('===>>> FOUND TICKETS!!! <<<===')
+            log.success('===>>> FOUND TICKETS !!! ('+what_time(True)+') <<<===')
             dates_available.append(date_in_format)
         else:
             log.warning(date_in_format+' failed')
